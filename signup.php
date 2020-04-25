@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lost and found</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
   <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
@@ -42,34 +42,52 @@
 
 
                       </li>
-                  </ul><span class="navbar-text actions"> <a href="signup.php" class="btn btn-light action-button">Login</a></span></div>
+                  </ul><span class="navbar-text actions"> <a href="login.php" class="btn btn-light action-button">Login</a></span></div>
               </div>
        </nav>
   </div>
   <div class="container">
     <div class="d-flex justify-content-center">
-      <form>
+      <form method="post">
       <div class="form-group">
             <label for="name">Name</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Name">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Name" name="uname">
         </div>
         <div class="form-group">
             <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
         </div>
         <div class="form-group"> 
             <label for="MobileNO">Mobile No</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Mobie No" name="mobilenumber">
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
         </div>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
         </div>  
         </form>
     </div>
   </div>
 </body>
-</html>s
+</html>
+<?php
+    include('dbcon.php');
+    if(isset($_POST['signup'])){
+        $username=$_POST['uname'];
+        $password=$_POST['password'];
+        $email=$_POST['email'];
+        $mobilenumber=$_POST['mobilenumber'];
+        $qry="INSERT INTO `info`(`uname`, `Email`, `MobileNumber`, `password`) VALUES ('$username','$email','$mobilenumber','$password')";
+        $run=mysqli_query($con,$qry);
+        if($run==true){
+          ?>
+          <script>
+              alert('You Are Signed Up Successfully')
+          </script>
+          <?php
+        }
+    }
+?>

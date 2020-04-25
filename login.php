@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(isset($_SESSION['uid'])){
+    header('locaton:user/welcome.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,20 +54,45 @@
   </div>
   <div class="container">
     <div class="d-flex justify-content-center">
-      <form>
+      <form method="post">
         <div class="form-group">
             <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
         </div>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary" name="login">Login</button>
         </div>  
         </form>
     </div>
   </div>
 </body>
 </html>
+<?php
+    include('dbcon.php');
+    if(isset($_POST['login'])){
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $qry="SELECT * FROM `info` WHERE `Email`='$email' AND `password`='$password'";
+        $run=mysqli_query($con,$qry);
+        $row=mysqli_num_rows($run);
+        if($row<1){
+            ?>
+            <script>
+                alert('Username or Password is incorrect !');
+                window.open('login.php','_self');
+            </script>
+
+            <?php
+        }
+        else{
+            $data=mysqli_fetch_assoc($run);
+            $id=$data['id'];
+            $_SESSION['uid']=$id;
+            header('location:user/welcome.php');
+        }
+    }
+?>
