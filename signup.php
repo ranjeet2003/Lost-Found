@@ -1,93 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <style type="text/css">
-    #main{
-      background-color: #333;
-      width: 600px;
-      height: 350px;
-      border-radius: 30px;
-    }
-    h1{
-      color: white;
-      background-color: black;
-      border-top-right-radius: 30px;
-      border-top-left-radius: 30px;
-    }
-    .text{
-      background-color: #333;
-      color: white;
-      width: 250px;
-      font-weight: bold;
-      font-size: 20px;
-      border: none;
-    }
-    .text:focus{
-      outline:none;
-    }
-    hr{
-      width: 250px;
-      margin-top: 0px !important;
-    }
-    #sub{
-      width: 250px;
-      height: 30px;
-      background-color: #5f5;
-      border: none;
-    }
-    #back{
-
-      background-image: <image src="back.jpg">
-    }
-    </style>
-    <meta charset="utf-8">
-    <title>Signup here</title>
-  </head>
-  <body id="back"  background="back.jpg">
-    <center>
-      <div id="main">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lost and found</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="assets/css/Article-List.css">
+  <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="assets/css/Loading-Page-Animation-Style.css">
+  <link rel="stylesheet" href="assets/css/Logo.css">
+  <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+  <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/Team-Clean.css">
+  <link rel="stylesheet" href="assets/css/Testimonials.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Lost-Found</title>
+</head>
+<body style="/*background-color:#CCD1D1;*/">
+  <div class="d-inline float-none">
+      <nav class="navbar navbar-light navbar-expand-md">
+          <div class="container-fluid"><a class="navbar-brand" href="#" id="brand-logo"> </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse"
+                  id="navcol-1">
+                  <ul class="nav navbar-nav ml-auto"></ul>
+              </div>
+          </div>
+      </nav>
+      <nav class="navbar navbar-dark navbar-expand bg-dark navigation-clean-button" data-bs-hover-animate="pulse" style="border-radius:42px;/*width:993px;*/height:66px;">
+          <div class="container"><a class="navbar-brand text-dark bg-light" href="#" data-bs-hover-animate="flash" style="border-radius:16px;">Lost or found</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div
+                  class="collapse navbar-collapse" data-bs-hover-animate="pulse" id="navcol-1">
+                  <ul class="nav navbar-nav justify-content-center align-self-center m-auto">
+                      <li class="nav-item" role="presentation"><a class="nav-link active" href="lost details.html" target="blank" style="border-radius:5px;">Lost something</a></li>
+                      <li class="nav-item" role="presentation"><a class="nav-link active" href="found details.php" target="_blank" style="border-radius:20px;">Found something</a></li>
 
 
-      <h1>SignUp</h1>
-    <form class="" action="" method="post">
-      <input type="text" name="uname" class="text" placeholder="Username"><br><hr><br>
-      <input type="email" name="Email" class="text" placeholder="Email"><br><hr><br>
-      <input type="tel" name="MobileNumber" class="text" placeholder="Mobile Number"><br><hr><br>
-      <input type="password" name="password" class="text" placeholder="password"><br><hr><br>
-      <input type="submit" name="submit" value="SignUp"id="sub">
-
-    </form>
-      </div>
-  </body>
-</html>
-<?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="lost&founddetails";
-$conn=mysqli_connect($servername,$username,$password,$dbname);
-error_reporting(0);
-
-mysqli_query($conn,$query);
-if ($_POST['submit'])
-{
-  $un=$_POST['uname'];
-  $em=$_POST['Email'];
-  $mn=$_POST['MobileNumber'];
-  $pw=$_POST['password'];
-  if ($un!="" && $em!="" && $mn!="" && $pw!="")
-   {
-    $query="INSERT INTO INFO VALUES('$un','$em','$mn','$pw')";
-    $data=mysqli_query($conn,$query);
-    if($data)
-    {
-      echo"thanks for signin";
-    }
-  }
-  else {
-    echo "All fields are required";
-  }
-}
-
-
- ?>
+                      </li>
+                  </ul><span class="navbar-text actions"> <a href="signup.php" class="btn btn-light action-button">Login</a></span></div>
+              </div>
+       </nav>
+  </div>
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <form>
+      <div class="form-group">
+            <label for="name">Name</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+        <div class="form-group"> 
+            <label for="MobileNO">Mobile No</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>  
+        </form>
+    </div>
+  </div>
+</body>
+</html>s
