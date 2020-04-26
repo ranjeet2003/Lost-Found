@@ -51,19 +51,19 @@
       <form method="post">
       <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="inputEmail" placeholder="Name" name="uname">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Name" name="uname" required>
         </div>
         <div class="form-group">
             <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
         </div>
         <div class="form-group"> 
             <label for="MobileNO">Mobile No</label>
-            <input type="text" class="form-control" id="inputEmail" placeholder="Mobie No" name="mobilenumber">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Mobie No" name="mobilenumber" required>
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
         </div>
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
@@ -74,8 +74,8 @@
 </body>
 </html>
 <?php
-    include('dbcon.php');
     if(isset($_POST['signup'])){
+        include('dbcon.php');
         $username=$_POST['uname'];
         $password=$_POST['password'];
         $email=$_POST['email'];
@@ -83,11 +83,11 @@
         $qry="INSERT INTO `info`(`uname`, `Email`, `MobileNumber`, `password`) VALUES ('$username','$email','$mobilenumber','$password')";
         $run=mysqli_query($con,$qry);
         if($run==true){
-          ?>
-          <script>
-              alert('You Are Signed Up Successfully')
-          </script>
-          <?php
+            ?>
+            <script>
+                alert('Sign up Succesfully')
+            </script>
+            <?php
         }
     }
 ?>
