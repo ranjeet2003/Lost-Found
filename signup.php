@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +47,7 @@
   </div>
   <div class="container">
     <div class="d-flex justify-content-center">
-      <form method="post">
+      <form method="post" >
       <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="inputEmail" placeholder="Name" name="uname" required>

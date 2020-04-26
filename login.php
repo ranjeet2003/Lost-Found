@@ -1,9 +1,3 @@
-<?php 
-session_start();
-if(isset($_SESSION['uid'])){
-    header('locaton:user/welcome.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +42,7 @@ if(isset($_SESSION['uid'])){
 
 
                       </li>
-                  </ul><span class="navbar-text actions"> <a href="signup.php" class="btn btn-light action-button">Sign Up</a></span></div>
+                  </ul><span class="navbar-text actions"><a href="signup.php"class="btn btn-light action-button">Sign Up</a></span></div>
               </div>
        </nav>
   </div>
@@ -89,9 +83,6 @@ if(isset($_SESSION['uid'])){
             <?php
         }
         else{
-            $data=mysqli_fetch_assoc($run);
-            $id=$data['id'];
-            $_SESSION['uid']=$id;
             header('location:user/welcome.php');
         }
     }
