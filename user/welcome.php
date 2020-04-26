@@ -1,4 +1,6 @@
-
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -42,7 +44,7 @@
 
 
                         </li>
-                    </ul><span class="navbar-text actions"> Welcome To Our Lost-Found Portal </a></span></div>
+                    </ul><span class="navbar-text actions"> Welcome <?php echo $_SESSION['username'];?> </a></span></div>
     </div>
     </nav>
     </div>

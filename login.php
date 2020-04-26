@@ -72,7 +72,11 @@
         $password=$_POST['password'];
         $qry="SELECT * FROM `info` WHERE `Email`='$email' AND `password`='$password'";
         $run=mysqli_query($con,$qry);
+        $qry1="SELECT `uname` FROM `info` WHERE `Email`='$email' AND `password`='$password'";
         $row=mysqli_num_rows($run);
+        $run1=mysqli_query($con,$qry1);
+        $data = mysqli_fetch_assoc($run1);
+        //$row1=mysqli_num_rows($run1);
         if($row<1){
             ?>
             <script>
@@ -83,6 +87,9 @@
             <?php
         }
         else{
+            session_start();
+            $_SESSION['username']=$data['uname'];
+
             header('location:user/welcome.php');
         }
     }
