@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +43,7 @@
 
 
                       </li>
-                  </ul><span class="navbar-text actions"> <a href="login.php" class="btn btn-light action-button">Login</a></span></div>
+                  </ul><span class="navbar-text actions">Welcome <?php echo $_SESSION['username'];?></span></div>
               </div>
        </nav>
   </div>
