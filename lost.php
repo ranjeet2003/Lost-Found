@@ -1,5 +1,11 @@
-<?php 
+<?php
     session_start();
+   if(isset($_SESSION['username'])){
+       echo "";
+   }
+  else{
+      header('location:login.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

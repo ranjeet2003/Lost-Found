@@ -1,5 +1,11 @@
-<?php 
+<?php
     session_start();
+   if(isset($_SESSION['username'])){
+       echo "";
+   }
+  else{
+      header('location:../login.php');
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,8 +45,8 @@
                 <div
                     class="collapse navbar-collapse" data-bs-hover-animate="pulse" id="navcol-1">
                     <ul class="nav navbar-nav justify-content-center align-self-center m-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="lost details.html" target="blank" style="border-radius:5px;">Lost something</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="found details.php" target="_blank" style="border-radius:20px;">Found something</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="../lost.php" target="blank" style="border-radius:5px;">Lost something</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="../found.php" target="_blank" style="border-radius:20px;">Found something</a></li>
 
 
                         </li>
