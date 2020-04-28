@@ -41,16 +41,16 @@
           </div>
       </nav>
       <nav class="navbar navbar-dark navbar-expand bg-dark navigation-clean-button" data-bs-hover-animate="pulse" style="border-radius:42px;/*width:993px;*/height:66px;">
-          <div class="container"><a class="navbar-brand text-dark bg-light" href="#" data-bs-hover-animate="flash" style="border-radius:16px;">Lost or found</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-              <div
+            <div class="container"><a class="navbar-brand text-dark bg-light" href="#" data-bs-hover-animate="flash" style="border-radius:16px;">Lost or found</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
                   class="collapse navbar-collapse" data-bs-hover-animate="pulse" id="navcol-1">
                   <ul class="nav navbar-nav justify-content-center align-self-center m-auto">
                       <li class="nav-item" role="presentation"><a class="nav-link active" href="found.php" target="blank" style="border-radius:20px;">Found something</a></li>
+                  </ul>
+                    <span class="navbar-text actions"> Welcome <?php echo $_SESSION['username'];?></span>
 
-
-                      </li>
-                  </ul><span class="navbar-text actions"> Welcome <?php echo $_SESSION['username'];?></span></div>
-              </div>
+                </div>
+            </div>
        </nav>
   </div>
   <div class="container">
