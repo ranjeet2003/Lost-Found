@@ -55,10 +55,10 @@
   </div>
   <div class="container">
     <div class="d-flex justify-content-center">
-      <form method="post" action="sign.php">
+      <form method="post" action="#"enctype="multipart/form-data">
       <div class="form-group">
             <label for="DocName"> Document Name</label>
-            <input type="text" class="form-control" id="inputEmail" placeholder="Document Name" name="uname" required>
+            <input type="text" class="form-control" id="inputEmail" placeholder="Document Name" name="dname" required>
         </div>
         <div class="form-group">
             <label for="Serial no.">Document serial no(If any)</label>
@@ -70,13 +70,34 @@
         </div>
         <div class="form-group">
             <label for="inputimg">Upload image(If any)</label>
-            <input type="file" class="form-control" id="inputimg" placeholder="upload image" name="password" required>
+            <input type="file" class="form-control" id="inputimg" placeholder="upload image" name="simg" >
         </div>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary" name="signup">Upload Data</button>
+          <button type="submit" class="btn btn-primary" name="upload">Upload Data</button>
         </div>  
         </form>
     </div>
   </div>
 </body>
 </html>
+<?php
+        if(isset($_POST['upload'])){
+            include('dbcon.php');
+            $name=$_SESSION['username'];
+            $dname=$_POST['dname'];
+            $dserial=$_POST['serial'];
+            $descrp=$_POST['Description'];
+            $imagename=$_FILES['simg']['name'];
+            $tempname=$_FILES['simg']['tmp_name'];
+            move_uploaded_file($tempname,"found_img/$imagename");
+            $qry="INSERT INTO `found_info`(`uname`,`dname`, `dserialno`, `descrp`, `img`) VALUES ('$name','$dname','$dserial','$descrp','$imagename')";
+            $run=mysqli_query($con,$qry);
+            if($run==true){
+                ?>
+                <script>
+                    alert('Data Inserted Succesfully')
+                </script>
+                <?php
+            }
+        }
+?>
