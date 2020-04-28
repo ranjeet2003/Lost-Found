@@ -95,7 +95,7 @@
             if($run==true){
                 ?>
                 <script>
-                    alert('Data Inserted Succesfully')
+                     alert('We have uploaded your details and notify you if details are matched with our database')
                 </script>
                 <?php
             }
