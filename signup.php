@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="assets/css/Team-Clean.css">
   <link rel="stylesheet" href="assets/css/Testimonials.css">
     
-     <link rel="stylesheet" href="assets/assets1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/assets1/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/assets1/css/login-form-1.css">
     <link rel="stylesheet" href="assets/assets1/css/login-form.css">
     <link rel="stylesheet" href="assets/assets1/css/styles.css">
