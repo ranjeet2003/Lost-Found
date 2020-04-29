@@ -17,11 +17,16 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/Team-Clean.css">
   <link rel="stylesheet" href="assets/css/Testimonials.css">
+    
+     <link rel="stylesheet" href="assets/assets1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/assets1/css/login-form-1.css">
+    <link rel="stylesheet" href="assets/assets1/css/login-form.css">
+    <link rel="stylesheet" href="assets/assets1/css/styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Lost-Found</title>
 </head>
-<body style="/*background-color:#CCD1D1;*/">
+<body >
   <div class="d-inline float-none">
       <nav class="navbar navbar-light navbar-expand-md">
           <div class="container-fluid"><a class="navbar-brand" href="#" id="brand-logo"> </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -40,23 +45,23 @@
               </div>
        </nav>
   </div>
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <form method="post">
-        <div class="form-group">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+<div class="container full-height">
+        <div class="row flex center v-center full-height">
+            <div class="col-8 col-sm-4">
+                <div class="form-box">
+                    <form>
+                        <fieldset>
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="username" name="username" placeholder="Username/Email"><input class="form-control" type="password" id="password"
+                                name="password" placeholder="password"><button class="btn btn-primary btn-block" type="button">LOGIN </button></fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
-        </div>
-        <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary" name="login">Login</button>
-        </div>  
-        </form>
     </div>
-  </div>
+   
+    <script src="assets/assets1/js/jquery.min.js"></script>
+    <script src="assets/assets1/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 <?php
