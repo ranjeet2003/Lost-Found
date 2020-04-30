@@ -12,20 +12,54 @@
             <input type="submit" name="match" value="Match data">
         </form>
     </div>
-</body>
-</html>
+
 <?php
     if(isset($_POST['match'])){
         include('../dbcon.php');
-        $qry="SELECT a.uname,a.dserial FROM lost_info a WHERE a.dserialno in(select dserialno from found_info )";
+        $qry="SELECT * FROM lost_info a WHERE a.dserialno in(select dserialno from found_info )";
         $run=mysqli_query($con,$qry);
         $num = mysqli_num_rows($run);
-        if($num > 0){  
-            while($row = mysqli_fetch_assoc($run)){ // use fetch_assoc 
-                $data[] = array('name' => $row['uname'], 'doc_serial_no' => $row['dserial']);
-                echo $data['name'];
-                echo $data['dserialno'];
-            }  
+        if($num < 0){  
+           echo "Nothing Found";
+        }
+        else{
+            while($data = mysqli_fetch_assoc($run)){ // use fetch_assoc 
+               ?>
+                <table border="1" style="width:50%; margin-top:20px;"  align="center" >
+                    <tr>
+                    <th colspan="3">Lost-Found Details</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="5"  align="center"><img src="../lost_img/<?php echo $data['img']; ?>" style="max-height:150px;max-width=120px;"/></td>
+                        <th>User Name</th>
+                        <td  align="center"><?php echo $data['uname']; ?></td>
+                    </tr>
+                    <tr>
+                        
+                        <th>Doc Name</th>
+                        <td  align="center"><?php echo $data['dname']; ?></td>
+                    </tr>
+                    <tr>
+                        
+                        <th>Serial No</th>
+                        <td  align="center"><?php echo $data['dserialno']; ?></td>
+                    </tr>
+                    <tr>
+                        
+                        <th>Description</th>
+                        <td  align="center"><?php echo $data['descrp']; ?></td>
+                    </tr>
+                    <tr>
+                        
+                        <th>Image Name</th>
+                        <td  align="center"><?php echo $data['img']; ?></td>
+                    </tr>
+               
+                </table>
+               <?php
+            }
         }
     }
 ?>
+</body>
+</html>
