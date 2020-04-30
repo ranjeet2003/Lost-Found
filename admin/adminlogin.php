@@ -34,8 +34,8 @@
                     <form method="post">
                         <fieldset>
                             <legend>Sign in</legend><img id="avatar" class="avatar round" src="../assets/assets1/img/avatar.png">
-                            <input class="form-control" type="text" id="uname" name="uname" placeholder="Admin Username">
-                            <input class="form-control" type="password" id="password" name="password" placeholder="Admin Password">
+                            <input class="form-control" type="text" id="uname" name="uname" placeholder="Admin Username" required>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Admin Password" required>
                             <button class="btn btn-primary btn-block" type="submit" name="login">LOGIN </button>
                         </fieldset>
                     </form>
@@ -48,7 +48,7 @@
 </body>
 </html>
 <?php
-    include('dbcon.php');
+   
     if(isset($_POST['login'])){
         include('../dbcon.php');
         $username=$_POST['uname'];

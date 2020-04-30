@@ -51,8 +51,11 @@
                 <div class="form-box">
                     <form method="post">
                         <fieldset>
-                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="email" name="email" placeholder="Email"><input class="form-control" type="password" id="password"
-                                name="password" placeholder="password"><button class="btn btn-primary btn-block" type="submit" name="login">LOGIN </button></fieldset>
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png">
+                            <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="password" required>
+                            <button class="btn btn-primary btn-block" type="submit" name="login">LOGIN</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>

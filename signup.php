@@ -51,10 +51,12 @@
                 <div class="form-box">
                     <form method="post" action="sign.php">
                         <fieldset>
-                            <legend>Sign up</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="text" id="uname" name="uname" placeholder="Name"><input class="form-control" type="email" id="email" name="email"
-                                placeholder="Email"><input class="form-control" type="int" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number"><input class="form-control" type="password" id="password" name="password" placeholder="password">
-                            <button
-                                class="btn btn-primary btn-block" type="submit" name="signup">SIGNUP </button>
+                            <legend>Sign up</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png">
+                            <input class="form-control" type="text" id="uname" name="uname" placeholder="Name" required>
+                            <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
+                            <input class="form-control" type="int" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" required>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="password" required>
+                            <button class="btn btn-primary btn-block" type="submit" name="signup">SIGNUP </button>
                         </fieldset>
                     </form>
                 </div>
