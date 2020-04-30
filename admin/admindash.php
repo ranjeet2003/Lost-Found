@@ -47,7 +47,7 @@
            echo "Nothing Found";
         }
         else{
-            while($data = mysqli_fetch_assoc($run)){ // use fetch_assoc 
+            while($data = mysqli_fetch_assoc($run)){ 
                ?>
                     <div class="container pt-3 p-3 my-3 border">
                         <div class="table-responsive">
@@ -57,32 +57,33 @@
                                 </tr>
                                 <tr>
                                     <td rowspan="5"  align="center"><div class="media-body"><img src="../lost_img/<?php echo $data['img']; ?>" class="d-flex mr-3 img-thumbnail align-self-center"/></div></td>
-                                    <th>User Name</th>
+                                    <th>User Name who lost</th>
                                     <td  align="center"><?php echo $data['uname']; ?></td>
                                 </tr>
                                 <tr>
                                     
-                                    <th>Doc Name</th>
+                                    <th>Doc Name who lost</th>
                                     <td  align="center"><?php echo $data['dname']; ?></td>
                                 </tr>
                                 <tr>
                                     
-                                    <th>Serial No</th>
+                                    <th>Serial No. of lost doc.</th>
                                     <td  align="center"><?php echo $data['dserialno']; ?></td>
                                 </tr>
                                 <tr>
                                     
-                                    <th>Description</th>
+                                    <th>Description who lost</th>
                                     <td  align="center"><?php echo $data['descrp']; ?></td>
                                 </tr>
                                 <tr>
                                     
-                                    <th>Image Name</th>
+                                    <th>Image Name who los</th>
                                     <td  align="center"><?php echo $data['img']; ?></td>
                                 </tr>
                                 <tr>
+
                                     <th>Contact Founder Person</th>
-                                    <td align="center"><a href="Sharedetails.php?uname=<?php echo $data['uname']; ?>"><button type="button" class="btn btn-primary">Contact Details</button></a></td>
+                                    <td align="center"><a href="Sharedetails.php?dserialno=<?php echo $data['dserialno']; ?>"><button type="button" class="btn btn-primary">Contact Details</button></a></td>
                                 </tr>
                                 
                             </table>

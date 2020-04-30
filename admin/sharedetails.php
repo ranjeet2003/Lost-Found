@@ -33,30 +33,54 @@
 
 <?php
 include('../dbcon.php');
-$uname=$_REQUEST['uname'];
-$qry="SELECT * FROM `info` WHERE `uname`='$uname'";
+$serial=$_REQUEST['dserialno'];
+$qry="SELECT `uname` FROM `found_info` WHERE `dserialno`='$serial'";
 $run=mysqli_query($con,$qry);
 $num = mysqli_num_rows($run);
 if($num < 0){  
     echo "Nothing Found";
     }
     else{
-        $infodata = mysqli_fetch_assoc($run);
+        $infodatafromfoundtable = mysqli_fetch_assoc($run);
+        $str=$infodatafromfoundtable['uname'];
+        $qry1="SELECT * FROM `info` WHERE `uname`='$str'";
+        $run1=mysqli_query($con,$qry1);
+        $infodata=mysqli_fetch_assoc($run1);
         ?>
             <div class="container pt-3 p-3 my-3 border">
                 <div class="table-responsive">
                     <table class="table table-striped" >
                             <tr>
-                                <th>User Name: </th>
+                                <th>User Name who found: </th>
                                 <td align="center"><?php echo $infodata['uname'];?></td>
                             </tr>
                             <tr>
-                                <th>Email: </th>
+                                <th>Email : </th>
                                 <td align="center"><?php echo $infodata['Email'];?></td>
                             </tr>
                             <tr>
                                 <th>Mobile Number: </th>
                                 <td align="center"><?php echo $infodata['MobileNumber'];?></td>
+                            </tr>
+                            <tr >
+                                <th>Send SMS</th>
+                                <td align="center"> <?php
+                                    $apiKey = urlencode('HMwol0j80So-7QuZqqkvjD2Z2LSq5XqR0PSZUhZMbM');
+                                    $numbers = array('91'.$infodata['MobileNumber']);
+                                    $sender = urlencode('Lost-Found');
+                                    $message = rawurlencode('Your document which is lost/found is founded by');
+                                    $numbers = implode(',', $numbers);
+                                    $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+                                    $ch = curl_init('https://api.textlocal.in/send/');
+                                    curl_setopt($ch, CURLOPT_POST, true);
+                                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                    $response = curl_exec($ch);
+                                    curl_close($ch);
+                                    echo $response;    
+                                    ?>
+                                                                
+                                <button type="button" class="btn btn-primary">Send SMS</button></td>
                             </tr>
                     </table>
                 </div>
