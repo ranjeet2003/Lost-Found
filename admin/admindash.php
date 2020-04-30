@@ -80,7 +80,11 @@
                                     <th>Image Name</th>
                                     <td  align="center"><?php echo $data['img']; ?></td>
                                 </tr>
-                        
+                                <tr>
+                                    <th>Contact Founder Person</th>
+                                    <td align="center"><a href="Sharedetails.php?uname=<?php echo $data['uname']; ?>"><button type="button" class="btn btn-primary">Contact Details</button></a></td>
+                                </tr>
+                                
                             </table>
                         </div>
                     </div>    
