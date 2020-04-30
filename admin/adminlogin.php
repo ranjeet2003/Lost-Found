@@ -1,63 +1,58 @@
-<?php 
-session_start();
-if(isset($_SESSION['uid'])){
-    header('locaton:admin/admindash.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin panel</title>
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="../assets/css/Article-List.css">
+  <link rel="stylesheet" href="../assets/css/Footer-Dark.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="../assets/css/Loading-Page-Animation-Style.css">
+  <link rel="stylesheet" href="../assets/css/Logo.css">
+  <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+  <link rel="stylesheet" href="../assets/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/Team-Clean.css">
+  <link rel="stylesheet" href="../assets/css/Testimonials.css">
+    
+     <link rel="stylesheet" href="../assets/assets1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/assets1/css/login-form-1.css">
+    <link rel="stylesheet" href="../assets/assets1/css/login-form.css">
+    <link rel="stylesheet" href="../assets/assets1/css/styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Lost-Found</title>
 </head>
-<body style="/*background-color:#CCD1D1;*/">
-  <div class="d-inline float-none">
-      <nav class="navbar navbar-light navbar-expand-md">
-          <div class="container-fluid"><a class="navbar-brand" href="#" id="brand-logo"> </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-              <div class="collapse navbar-collapse"
-                  id="navcol-1">
-                  <ul class="nav navbar-nav ml-auto"></ul>
-              </div>
-          </div>
-      </nav>
-      <nav class="navbar navbar-dark navbar-expand bg-dark navigation-clean-button" data-bs-hover-animate="pulse" style="border-radius:42px;/*width:993px;*/height:66px;">
-          <div class="container"><a class="navbar-brand text-dark bg-light" href="#" data-bs-hover-animate="flash" style="border-radius:16px;">Lost or found</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-              <div
-                  class="collapse navbar-collapse" data-bs-hover-animate="pulse" id="navcol-1">
-                  <ul class="nav navbar-nav justify-content-center align-self-center m-auto">
-                  </ul><span class="navbar-text actions"><a href="signup.php"class="btn btn-light action-button">Sign Up</a></span></div>
-              </div>
-       </nav>
-  </div>
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <form method="post">
-        <div class="form-group">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+<body>
+<div class="container full-height">
+        <div class="row flex center v-center full-height">
+            <div class="col-8 col-sm-4">
+                <div class="form-box">
+                    <form method="post">
+                        <fieldset>
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="../assets/assets1/img/avatar.png">
+                            <input class="form-control" type="text" id="uname" name="uname" placeholder="Admin Username">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Admin Password">
+                            <button class="btn btn-primary btn-block" type="submit" name="login">LOGIN </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
-        </div>
-        <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary" name="login">Login</button>
-        </div>  
-        </form>
     </div>
-  </div>
+    <script src="../assets/assets1/js/jquery.min.js"></script>
+    <script src="../assets/assets1/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 <?php
     include('dbcon.php');
     if(isset($_POST['login'])){
+        include('../dbcon.php');
         $username=$_POST['uname'];
-        $password=$_POST['pass'];
+        $password=$_POST['password'];
         $qry="SELECT * FROM `admin` WHERE `name`='$username' AND `password`='$password'";
         $run=mysqli_query($con,$qry);
         $row=mysqli_num_rows($run);
@@ -65,15 +60,12 @@ if(isset($_SESSION['uid'])){
             ?>
             <script>
                 alert('Username or Password is incorrect !');
-                window.open('login.php','_self');
+                window.open('adminlogin.php','_self');
             </script>
             <?php
         }
         else{
-            $data=mysqli_fetch_assoc($run);
-            $id=$data['id'];
-            $_SESSION['uid']=$id;
-            header('location:admin/admindash.php');
+            header('location:admindash.php');
         }
     }
 ?>
