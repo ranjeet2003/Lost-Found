@@ -49,10 +49,10 @@
         <div class="row flex center v-center full-height">
             <div class="col-8 col-sm-4">
                 <div class="form-box">
-                    <form>
+                    <form method="post">
                         <fieldset>
-                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="email" name="email" placeholder="Username/Email"><input class="form-control" type="password" id="password"
-                                name="password" placeholder="password"><button class="btn btn-primary btn-block" type="button">LOGIN </button></fieldset>
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="email" name="email" placeholder="Email"><input class="form-control" type="password" id="password"
+                                name="password" placeholder="password"><button class="btn btn-primary btn-block" type="submit" name="login">LOGIN </button></fieldset>
                     </form>
                 </div>
             </div>
