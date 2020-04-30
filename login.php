@@ -51,7 +51,7 @@
                 <div class="form-box">
                     <form>
                         <fieldset>
-                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="username" name="username" placeholder="Username/Email"><input class="form-control" type="password" id="password"
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="email" id="email" name="email" placeholder="Username/Email"><input class="form-control" type="password" id="password"
                                 name="password" placeholder="password"><button class="btn btn-primary btn-block" type="button">LOGIN </button></fieldset>
                     </form>
                 </div>
