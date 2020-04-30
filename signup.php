@@ -51,8 +51,8 @@
                 <div class="form-box">
                     <form>
                         <fieldset>
-                            <legend>Sign up</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="text" id="username" name="username" placeholder="Name"><input class="form-control" type="email" id="email" name="email"
-                                placeholder="Username/Email"><input class="form-control" type="int" id="mobno" name="mobno" placeholder="Mobile Number"><input class="form-control" type="password" id="password" name="password" placeholder="password">
+                            <legend>Sign up</legend><img id="avatar" class="avatar round" src="assets/assets1/img/avatar.png"><input class="form-control" type="text" id="uname" name="uname" placeholder="Name"><input class="form-control" type="email" id="email" name="email"
+                                placeholder="Username/Email"><input class="form-control" type="int" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number"><input class="form-control" type="password" id="password" name="password" placeholder="password">
                             <button
                                 class="btn btn-primary btn-block" type="button">LOGIN </button>
                         </fieldset>
@@ -65,26 +65,3 @@
     <script src="assets/assets1/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
-<?php
-    if(isset($_POST['signup'])){
-        include('dbcon.php');
-        $username=$_POST['uname'];
-        $password=$_POST['password'];
-        $email=$_POST['email'];
-        $mobilenumber=$_POST['mobilenumber'];
-        $qry="INSERT INTO `info`(`uname`, `Email`, `MobileNumber`, `password`) VALUES ('$username','$email','$mobilenumber','$password')";
-        $run=mysqli_query($con,$qry);
-        if($run==true){
-            $qry1="SELECT `uname` FROM `info` WHERE `Email`='$email' AND `password`='$password'";
-            $run1=mysqli_query($con,$qry1);
-            $data = mysqli_fetch_assoc($run1);
-            ?>
-            <script>
-                alert('Sign up Succesfully')
-            </script>
-            <?php
-            session_start();
-            $_SESSION['username']=$data['uname'];
-            header('location:user/welcome.php');
-        }
-    }
