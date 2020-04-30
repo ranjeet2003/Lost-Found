@@ -26,10 +26,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hello admin</h1>
-        <form action="#" method="post">
-            <input type="submit" name="match" value="Match data">
-        </form>
+        <div class="d-flex justify-content-center">
+            <h1>Hello admin</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="#" method="post">
+                <button type="submit" class="btn btn-primary" name="match">Match Data</button>
+            </form>
+        </div>
+        
     </div>
 
 <?php
