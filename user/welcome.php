@@ -54,7 +54,7 @@
     </div>
     </nav>
     </div>
-    <div class="jumbotron" style="text-align:center;background-image:url(../assets/img/logo1.png);background-size:cover;background-position:initial;border-radius:20px;border:solid;margin-top:20px;margin-left:5px;padding:40px;margin-right:5px;">
+    <div class="jumbotron" style="text-align:center;background-image:url(../assets/img/logo-nav.jpeg);background-size:cover;background-position:initial;border-radius:20px;border:solid;margin-top:20px;margin-left:5px;padding:40px;margin-right:5px;">
         <div id="LoadingPage" class="loading-icon"></div>
         <h1 style="padding:10px;">We are here always for help you...</h1>
         <p class="text-center text-dark" style="text-align:center;">If you lost something,dont worry.if you found something,that is great please contack us we will definitely help you..</p>
@@ -91,12 +91,12 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Team </h2>
-                <p class="text-center">We dont have any team....just join and make us complete....</p>
+                <p class="text-center">We dont have any team....<br>just join and make us complete....</p>
             </div>
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item" style="margin-left:370px;"><img src="../assets/img/help.jpg" data-bs-hover-animate="pulse" style="border-radius:116px;">
-                    <h3 class="name">Ranjeet Gautam</h3>
-                    <p class="description">founder of this website.</p>
+                    <h3 class="name">We and You</h3>
+                    <p class="description">Together we can make success.</p>
                     <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
                 </div>
             </div>
