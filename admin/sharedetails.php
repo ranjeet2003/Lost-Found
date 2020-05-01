@@ -40,10 +40,12 @@ $num = mysqli_num_rows($run);
 $run2=mysqli_query($con,$qry2);
 $infodatafromlosttable=mysqli_fetch_assoc($run2);
 $unamefromlosttable=$infodatafromlosttable['uname'];
-$qry3="SELECT `MobileNumber` FROM `info` WHERE `uname`='$unamefromlosttable'";
+$qry3="SELECT * FROM `info` WHERE `uname`='$unamefromlosttable'";
 $run3=mysqli_query($con,$qry3);
-$mobilenooflooserperson=mysqli_fetch_assoc($run3);
-$mn=$mobilenooflooserperson['MobileNumber'];
+$infooflooserperson=mysqli_fetch_assoc($run3);
+$mn=$infooflooserperson['MobileNumber'];
+$name=$infooflooserperson['uname'];
+$mail=$infooflooserperson['Email'];
 if($num < 0){  
     echo "Nothing Found";
     }
@@ -89,9 +91,10 @@ if($num < 0){
                               $fno="91".$infodata['MobileNumber'];
                               $numbers = array($lno,$fno);
                               $sender = urlencode('TXTLCL');
-                              $msg="We are happy that your uploaded document details are matched with user :".$infodata['uname']." Email :".$infodata['Email'].
-                              " and mobile number is :".$infodata['MobileNumber'].". We requested you to contact the mentioned details. Thanks, Team Lost-Found";
-                              $message = rawurlencode('$msg');
+                              $msg="We are happy that your uploaded document details are found by user :".$name." Email :".$mail.
+                              " and mobile number is :".$mn."Which was lost by username: ".$infodata['uname']." Email :".$infodata['Email']." and
+                               contact no is:".$infodata['MobileNumber']." We request you to contact the mentioned details. Thanks, Team Lost-Found";
+                              $message = rawurlencode($msg);
                            
                               $numbers = implode(',', $numbers);
                            
