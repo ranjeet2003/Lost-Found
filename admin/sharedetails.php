@@ -91,9 +91,8 @@ if($num < 0){
                               $fno="91".$infodata['MobileNumber'];
                               $numbers = array($lno,$fno);
                               $sender = urlencode('TXTLCL');
-                              $msg="We are happy that your uploaded document details are found by user :".$name." Email :".$mail.
-                              " and mobile number is :".$mn."Which was lost by username: ".$infodata['uname']." Email :".$infodata['Email']." and
-                               contact no is:".$infodata['MobileNumber']." We request you to contact the mentioned details. Thanks, Team Lost-Found";
+                              $msg="We are happy that your uploaded document details are found by user :".$name.", Email :".$mail.
+                              " and mobile number is :".$mn.". Which was lost by username: ".$infodata['uname'].", Email :".$infodata['Email']." and contact no is:".$infodata['MobileNumber']." We request you to contact the mentioned details. Thanks, Team Lost-Found";
                               $message = rawurlencode($msg);
                            
                               $numbers = implode(',', $numbers);
