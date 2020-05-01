@@ -91,7 +91,7 @@ if($num < 0){
                               $sender = urlencode('TXTLCL');
                               $msg="We are happy that your uploaded document details are matched with user :".$infodata['uname']." Email :".$infodata['Email'].
                               " and mobile number is :".$infodata['MobileNumber'].". We requested you to contact the mentioned details. Thanks, Team Lost-Found";
-                              $message = rawurlencode('We are happy that your uploaded document details are matched with ');
+                              $message = rawurlencode('$msg');
                            
                               $numbers = implode(',', $numbers);
                            
@@ -108,6 +108,8 @@ if($num < 0){
                               
                               // Process your response here
                               echo $response;
+                              
+                              header('location:admindash.php');
                         }
                     ?>
                 </div>
