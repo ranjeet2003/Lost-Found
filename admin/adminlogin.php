@@ -55,6 +55,7 @@
         $password=$_POST['password'];
         $qry="SELECT * FROM `admin` WHERE `name`='$username' AND `password`='$password'";
         $run=mysqli_query($con,$qry);
+        $data = mysqli_fetch_assoc($run);
         $row=mysqli_num_rows($run);
         if($row<1){
             ?>
@@ -65,6 +66,8 @@
             <?php
         }
         else{
+            session_start();
+            $_SESSION['adminname']=$data['name'];
             header('location:admindash.php');
         }
     }
