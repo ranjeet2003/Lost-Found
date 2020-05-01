@@ -30,13 +30,20 @@
             <h1>Hello admin</h1>
         </div>
     </div>
-
 <?php
 include('../dbcon.php');
 $serial=$_REQUEST['dserialno'];
 $qry="SELECT `uname` FROM `found_info` WHERE `dserialno`='$serial'";
+$qry2="SELECT `uname` FROM `lost_info` WHERE `dserialno`='$serial'";
 $run=mysqli_query($con,$qry);
 $num = mysqli_num_rows($run);
+$run2=mysqli_query($con,$qry2);
+$infodatafromlosttable=mysqli_fetch_assoc($run2);
+$unamefromlosttable=$infodatafromlosttable['uname'];
+$qry3="SELECT `MobileNumber` FROM `info` WHERE `uname`='$unamefromlosttable'";
+$run3=mysqli_query($con,$qry3);
+$mobilenooflooserperson=mysqli_fetch_assoc($run3);
+$mn=$mobilenooflooserperson['MobileNumber'];
 if($num < 0){  
     echo "Nothing Found";
     }
@@ -62,6 +69,7 @@ if($num < 0){
                                 <th>Mobile Number: </th>
                                 <td align="center"><?php echo $infodata['MobileNumber'];?></td>
                             </tr>
+                            
                             <tr >
                                 <th>Send SMS</th>
                                 <td align="center"> <?php
@@ -74,8 +82,8 @@ if($num < 0){
                                  
                                      // Data for text message. This is the text message data.
                                      $sender = "Lost-Found"; // This is who the message appears to be from.
-                                     $no=$infodata['MobileNumber'];
-                                     $numbers = "$no"; // A single number or a comma-seperated list of numbers
+                                     
+                                     $numbers = "$mn"; // A single number or a comma-seperated list of numbers
                                      $message = "We are very happy that your documents are matched by someone we are sharing details of founder person with you: ";
                                      // 612 chars or less
                                      // A single number or a comma-seperated list of numbers
@@ -87,8 +95,7 @@ if($num < 0){
                                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                                      $result = curl_exec($ch); // This is the result from the API
                                      curl_close($ch);   
-                                    ?>
-                                                                
+                                    ?>                        
                                 <button type="button" class="btn btn-primary">Send SMS</button></td>
                             </tr>
                     </table>
