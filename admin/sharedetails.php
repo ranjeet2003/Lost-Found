@@ -72,33 +72,44 @@ if($num < 0){
                             
                             <tr >
                                 <th>Send SMS</th>
-                                <td align="center"> <?php
-                                     //Authorisation details.
-                                     $username = "ranjeetgautam13032@gmail.com";
-                                     $hash = "461885002e2a0298baf547d5be158bc31616ab0e7916e2ba5dbbb6193576eb04";
-                                 
-                                     // Config variables. Consult http://api.textlocal.in/docs for more info.
-                                     $test = "0";
-                                 
-                                     // Data for text message. This is the text message data.
-                                     $sender = "Lost-Found"; // This is who the message appears to be from.
-                                     
-                                     $numbers = "$mn"; // A single number or a comma-seperated list of numbers
-                                     $message = "We are very happy that your documents are matched by someone we are sharing details of founder person with you: ";
-                                     // 612 chars or less
-                                     // A single number or a comma-seperated list of numbers
-                                     $message = urlencode($message);
-                                     $data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
-                                     $ch = curl_init('http://api.textlocal.in/send/?');
-                                     curl_setopt($ch, CURLOPT_POST, true);
-                                     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                                     $result = curl_exec($ch); // This is the result from the API
-                                     curl_close($ch);   
-                                    ?>                        
-                                <button type="button" class="btn btn-primary">Send SMS</button></td>
+                                <td align="center">
+                                    <form action="#" method="post">
+                                        <button type="submit" class="btn btn-primary" name="sms">Send SMS </button>
+                                    </form>
+                                </td>
                             </tr>
                     </table>
+                    <?php
+                        if(isset($_POST['sms'])){
+                              //Authorisation details.
+                              $apiKey = urlencode('HMwol0j80So-7QuZqqkvjD2Z2LSq5XqR0PSZUhZMbM');
+	
+                              // Message details
+                              $lno="91".$mn;
+                              $fno="91".$infodata['MobileNumber'];
+                              $numbers = array($lno,$fno);
+                              $sender = urlencode('TXTLCL');
+                              $msg="We are happy that your uploaded document details are matched with user :".$infodata['uname']." Email :".$infodata['Email'].
+                              " and mobile number is :".$infodata['MobileNumber'].". We requested you to contact the mentioned details. Thanks, Team Lost-Found";
+                              $message = rawurlencode('We are happy that your uploaded document details are matched with ');
+                           
+                              $numbers = implode(',', $numbers);
+                           
+                              // Prepare data for POST request
+                              $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+                           
+                              // Send the POST request with cURL
+                              $ch = curl_init('https://api.textlocal.in/send/');
+                              curl_setopt($ch, CURLOPT_POST, true);
+                              curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                              $response = curl_exec($ch);
+                              curl_close($ch);
+                              
+                              // Process your response here
+                              echo $response;
+                        }
+                    ?>
                 </div>
             </div> 
         <?php
