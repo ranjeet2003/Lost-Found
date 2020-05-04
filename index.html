@@ -23,26 +23,21 @@
 
 <body style="/*background-color:#CCD1D1;*/">
     <div class="d-inline float-none">
-        <nav class="navbar navbar-light navbar-expand-md">
-            <div class="container-fluid"><a class="navbar-brand" href="#" id="brand-logo"> </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto"></ul>
-                </div>
-            </div>
-        </nav>
-        <nav class="navbar navbar-dark navbar-expand bg-dark navigation-clean-button" data-bs-hover-animate="pulse" style="border-radius:42px;/*width:993px;*/height:66px;">
-            <div class="container"><a class="navbar-brand text-dark bg-light" href="#" data-bs-hover-animate="flash" style="border-radius:16px;">Lost or found</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse" data-bs-hover-animate="pulse" id="navcol-1">
-                    <ul class="nav navbar-nav justify-content-center align-self-center m-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="lost.php" target="blank" style="border-radius:5px;">Lost something</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="found.php" target="blank" style="border-radius:20px;">Found something</a></li>
-
-
-                        </li>
-                    </ul><span class="navbar-text actions"> <a href="login.php" class="btn btn-light action-button">Log In</a><a href="signup.php" class="btn btn-light action-button" role="button" target="_blank">Sign Up</a></span></div>
-    </div>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md mt-auto ">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>  
+           <a class="navbar-brand" href="#">Lost-Found</a>
+           <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav">
+                   <!-- <li class="nav-item"><a class="nav-link" href="lost.php"><span class="far fa-frown-open"></span> Lost Something</a></li>
+                    <li class="nav-item"><a class="nav-link" href="found.php"><span class="far fa-grin fa-lg"></span> Found Something</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="login.php"><span class="fa fa-sign-in fa-lg"></span> Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.php"><span class="fa fa-address-card fa-lg"></span>Sign Up</a></li>
+                </ul>   
+            </div>         
+        </div>
     </nav>
     </div>
     <div class="jumbotron" style="text-align:center;background-image:url(assets/img/logo-nav.jpeg);background-size:cover;background-position:initial;border-radius:20px;border:solid;margin-top:20px;margin-left:5px;padding:40px;margin-right:5px;">
@@ -60,20 +55,22 @@
             <div class="row articles">
                 <div class="col-sm-6 col-md-4 item" style="border:5px;background-color:#EC7063;border-radius:22px;"><a ><img class="img-fluid" src="assets/img/ILostMyStuff.jpg" style="border:5px;border-radius:11px;"></a>
                     <h3>Lost somthing important ?</h3>
-                    <p class="text-light description">Register you stuff with proper information. We will match in our data that anyone uploded in found forum. If your data is matched with our data, we will contact you.</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>
-                <div
-                    class="col-sm-6 col-md-4 item" style="margin-left:0px;"><a ><img class="img-fluid" src="assets/img/transfer.png"></a>
+                    <p class="text-light description">Register you stuff with proper information. We will match in our data that anyone uploded in found forum. If your data is matched with our data, we will contact you.</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-4 item" style="margin-left:0px;"><a ><img class="img-fluid" src="assets/img/transfer.png"></a>
                     <h3>How we work</h3>
                     <p class="text-center text-light bg-dark">1.Founder upload data.</p>
                     <p class="text-light bg-dark">2.We will match data.</p>
                     <p class="text-light bg-dark">3.If matched, we will contact founder and processes to return you.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item" style="border:5px;background-color:#58D68D;border-radius:22px;"><img class="img-fluid" src="assets/img/find.jpg" style="border:5px;border-radius:11px;">
+                    <h3 class="text-center">Found something ?</h3>
+                    <h3></h3>
+                    <p class="text-center text-light">If you got something important, please contact us. We will return it to owner. Your little effort can bring smile on someone's face....</p>
+                    <p></p>
+                </div>
             </div>
-            <div class="col" style="background-color:#58D68D;border:20px;border-radius:23px;"><img src="assets/img/find.jpg" style="margin-left:45px;margin-top:59px;border-radius:20px;">
-                <h3 class="text-center">Found something ?</h3>
-                <h3></h3>
-                <p class="text-center text-light">If you got something important, please contact us. We will return it to owner. Your little effort can bring smile on someone's face....</p>
-                <p></p>
-            </div>
+            
         </div>
     </div>
     </div>
@@ -84,6 +81,8 @@
                 <h2 class="text-center">Team </h2>
                 <p class="text-center">We dont have any team....<br>just join us and make us complete....</p>
             </div>
+        </div>
+        <div class="container">
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item" style="margin-left:370px;"><img src="assets/img/help.jpg" data-bs-hover-animate="pulse" style="border-radius:116px;">
                     <h3 class="name">We and You</h3>
